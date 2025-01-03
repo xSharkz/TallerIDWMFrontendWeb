@@ -1,11 +1,17 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'app-register',
-  imports: [],
+  imports: [FormsModule, CommonModule],
   templateUrl: './register.component.html',
-  styleUrls: ['/src/app/AuthManagement/components/register/register.component.css']
+  styleUrls: ['/src/app/AuthManagement/components/register/register.component.css'],
+  standalone: true,
 })
+
+
 export class RegisterComponent {
   userData ={
     rut: '',
