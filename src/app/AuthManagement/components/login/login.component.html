@@ -1,52 +1,18 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif; /* Fuente por defecto */
-            margin: 0; /* Remueve el margen por defecto */
-            height: 100vh; /* Altura completa de la ventana del navegador */
-            display: flex; /* Usa Flexbox para el contenedor principal */
-            justify-content: flex-end; /* Alinea el contenido a la derecha */
-            align-items: flex-start; /* Alinea el contenido en la parte superior */
-        }
-        .login-form {
-            margin: 20px; /* Espacio alrededor del formulario */
-            padding: 20px; /* Espacio dentro del formulario */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra sutil alrededor del formulario */
-            width: 300px; /* Ancho fijo para el formulario */
-            background: white; /* Fondo blanco para el formulario */
-        }
-        .form-control {
-            margin-bottom: 10px; /* Espacio entre los controles del formulario */
-        }
-        .form-control label {
-            display: block; /* Los etiquetas ocupan todo el ancho posible */
-            margin-bottom: 5px; /* Espacio debajo de la etiqueta */
-        }
-        .form-control input {
-            width: 100%; /* Los input toman todo el ancho posible */
-            padding: 8px; /* Espacio interno para los input */
-            box-sizing: border-box; /* El padding y border no afectan el ancho total */
-        }
-        .form-control button {
-            width: 100%; /* El botón toma todo el ancho posible */
-            padding: 10px; /* Espacio interno del botón */
-            background-color: #007BFF; /* Color de fondo azul */
-            color: white; /* Texto blanco */
-            border: none; /* Sin bordes */
-            cursor: pointer; /* Cursor en forma de mano al pasar sobre el botón */
-        }
-        .form-control button:hover {
-            background-color: #0056b3; /* Oscurece el botón al pasar el cursor */
-        }
-    </style>
-</head>
-<body>
-    <div class="login-form">
-        <form action="/login" method="post">
-            <div class="form-control">
+<!-- src/app/AuthManagement/components/login/login.component.html -->
+<div class="login-container">
+  <h2>Iniciar Sesión</h2>
 
+  <form (ngSubmit)="login()" class="login-form">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" [(ngModel)]="email" name="email" required placeholder="Ingrese su email">
+    </div>
+
+    <div class="form-group">
+      <label for="password">Contraseña</label>
+      <input type="password" id="password" [(ngModel)]="password" name="password" required placeholder="Ingrese su contraseña">
+    </div>
+
+    <button type="submit" class="btn">Ingresar</button>
+  </form>
+</div>

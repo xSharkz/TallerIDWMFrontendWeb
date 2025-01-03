@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
-  imports: [],
+  imports: [FormsModule, CommonModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['/src/app/AuthManagement/components/login/login.component.css']
 })
 export class LoginComponent {
   email ='';
