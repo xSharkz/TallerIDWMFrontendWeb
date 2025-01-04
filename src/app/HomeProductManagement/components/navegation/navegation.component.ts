@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-navigation',
+  selector: 'app-navegation',
   templateUrl: './navegation.component.html',
   styleUrls: ['./navegation.component.css'],
   standalone: true,

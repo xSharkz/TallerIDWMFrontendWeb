@@ -10,5 +10,5 @@ import { CommonModule } from '@angular/common';
   standalone: true,
 })
 export class CardComponent {
-  @Input() Product!: Product;
+  @Input() product!: Product;
 }

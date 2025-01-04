@@ -1,4 +1,16 @@
-<nav>
-  <button (click)="navigate(false)" [disabled]="!prev">Anterior</button>
-  <button (click)="navigate(true)" [disabled]="!next">Siguiente</button>
-</nav>
+<div class="flex space-x-4">
+  <button
+    (click)="navigate(false)"
+    [disabled]="!prev"
+    class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 disabled:bg-gray-300"
+  >
+    Anterior
+  </button>
+  <button
+    (click)="navigate(true)"
+    [disabled]="!next"
+    class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 disabled:bg-gray-300"
+  >
+    Siguiente
+  </button>
+</div>

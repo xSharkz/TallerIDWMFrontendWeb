@@ -1,4 +1,3 @@
-
 export interface Product {
   id: number;
   name: string;
@@ -8,12 +7,10 @@ export interface Product {
   imageUrl: string;
 }
 
+
 export interface ApiResponse {
-  info: {
-    count: number;
-    pages: number;
-    next: string;
-    prev: string;
-  };
-  results: Product[];
+  totalItems: number;
+  pageNumber: number;
+  pageSize: number;
+  products: Product[];
 }

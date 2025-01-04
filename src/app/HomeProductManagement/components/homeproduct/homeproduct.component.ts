@@ -1,43 +1,59 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeproductService } from '../../services/homeproduct.service';
-import { Product, ApiResponse } from '../../interfaces/product';  // Verifica que las rutas de importación sean correctas
+import { Product } from '../../interfaces/product';
+import { CardComponent } from '../card/card.component.spec';
+import { CommonModule } from '@angular/common';
+import { NavegationComponent } from '../navegation/navegation.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-homeproduct',
+  standalone: true,
+  imports: [CardComponent, CommonModule,NavegationComponent,HttpClientModule],
   templateUrl: './homeproduct.component.html',
-  styleUrls: ['./homeproduct.component.css']
+  styleUrls: ['./homeproduct.component.css'],
 })
-export class HomeproductComponent implements OnInit {
-  products: Product[] = [];  // Array para almacenar los productos
-  filter = '';  // Filtro para búsqueda o filtrado de productos
-  type = '';  // Tipo de producto para filtrar
-  order = '';  // Orden de los resultados
-  page = 1;  // Página actual inicializada en 1
 
-  constructor(private homeproductService: HomeproductService) {}
+export class HomeproductComponent implements OnInit {
+  products: Product[] = [];
+  prev: string| null = null;
+  next: string| null = null;
+  currentPage: number = 1;
+  searchName: string = '';
+
+  constructor(private apiService: HomeproductService) {}
 
   ngOnInit(): void {
-    this.fetchProducts();  // Llamada inicial para cargar productos
+    this.loadProducts();
   }
 
-  // Método para cargar productos desde la API
-  fetchProducts(): void {
-    this.homeproductService.getProducts(this.filter, this.type, this.order, this.page).subscribe({
-      next: (data: ApiResponse) => {
-        this.products = data.results;  // Asignar los resultados obtenidos al array de productos
+  loadProducts() {
+    this.apiService.getProducts(this.searchName, 'all', 'asc', this.currentPage).subscribe({
+      next: (data) => {
+        console.log('Datos recibidos:', data);
+        this.products = data.products; // Asumiendo que la respuesta usa el campo 'products'
+        this.prev = data.pageNumber > 1 ? `?page=${data.pageNumber - 1}` : null; // Controlar paginación
+        this.next = (data.pageNumber * data.pageSize) < data.totalItems ? `?page=${data.pageNumber + 1}` : null;
       },
       error: (err) => {
-        console.error('Error al cargar los productos:', err);
+        console.error('Error al cargar productos:', err);
       }
     });
   }
 
-  // Método para cambiar la página de productos
-  changePage(next: boolean): void {
-    this.page += next ? 1 : -1;  // Incrementar o decrementar el número de página
-    if (this.page < 1) {  // Prevenir número de página menor que 1
-      this.page = 1;
+  onSearch(event: Event){
+    const input = event.target as HTMLInputElement;
+    this.searchName = input.value.trim();
+    this.currentPage = 1;
+    this.loadProducts();
+  }
+  onPageChange(direction: boolean){
+    if(direction){
+      this.currentPage++;
+    }else{
+      this.currentPage--;
     }
-    this.fetchProducts();  // Volver a cargar productos para la nueva página
+
   }
 }
