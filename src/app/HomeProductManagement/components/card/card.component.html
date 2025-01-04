@@ -1,9 +1,16 @@
-<a href="#" class="flex flex-col items-center bg-gray-200 border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-900">
-  <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" [src]="product.imageUrl" [alt]="product.name" />
+<div class="flex flex-col items-center bg-gray-800 border border-gray-700 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-700">
+  <img
+    class="object-cover w-full h-48 md:h-auto md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
+    [src]="product.ImageUrl"
+    [alt]="product.Name"
+  />
   <div class="flex flex-col justify-between p-4 leading-normal">
-    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ product.name }}</h5>
-    <p class="text-lg"><strong>Precio:</strong> ${{ product.price }}</p>
-    <p class="text-lg"><strong>Tipo:</strong> {{ product.type }}</p>
-    <p class="text-lg"><strong>Cantidad en Stock:</strong> {{ product.stockQuantity }}</p>
+    <h5 class="text-xl font-bold tracking-tight text-white">
+      {{ product.Name }}
+    </h5>
+    <p class="text-sm text-gray-400"><strong>Status:</strong> {{ product.StockQuantity > 0 ? 'In Stock' : 'Out of Stock' }}</p>
+    <p class="text-sm text-gray-400"><strong>Price:</strong> ${{ product.Price }}</p>
+    <p class="text-sm text-gray-400"><strong>Type:</strong> {{ product.Type }}</p>
+    <p class="text-sm text-gray-400"><strong>Stock Quantity:</strong> {{ product.StockQuantity }}</p>
   </div>
-</a>
+</div>

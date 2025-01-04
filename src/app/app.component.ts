@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { initFlowbite } from 'flowbite';
 import { HomeproductComponent } from './HomeProductManagement/components/homeproduct/homeproduct.component';
 import { HttpClientModule } from '@angular/common/http';
+
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [HttpClientModule, HomeproductComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeproductService } from '../../services/homeproduct.service';
 import { Product } from '../../interfaces/product';
-import { CardComponent } from '../card/card.component.spec';
+import { CardComponent } from '../card/card.component';
 import { CommonModule } from '@angular/common';
 import { NavegationComponent } from '../navegation/navegation.component';
 import { HttpClientModule } from '@angular/common/http';
