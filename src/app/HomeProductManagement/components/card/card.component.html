@@ -1,16 +1,10 @@
-<div class="flex flex-col items-center bg-gray-800 border border-gray-700 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-700">
-  <img
-    class="object-cover w-full h-48 md:h-auto md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
-    [src]="product.ImageUrl"
-    [alt]="product.Name"
-  />
-  <div class="flex flex-col justify-between p-4 leading-normal">
-    <h5 class="text-xl font-bold tracking-tight text-white">
-      {{ product.Name }}
-    </h5>
-    <p class="text-sm text-gray-400"><strong>Status:</strong> {{ product.StockQuantity > 0 ? 'In Stock' : 'Out of Stock' }}</p>
-    <p class="text-sm text-gray-400"><strong>Price:</strong> ${{ product.Price }}</p>
-    <p class="text-sm text-gray-400"><strong>Type:</strong> {{ product.Type }}</p>
-    <p class="text-sm text-gray-400"><strong>Stock Quantity:</strong> {{ product.StockQuantity }}</p>
+<div class="card">
+  <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" [src]="product.ImageUrl" [alt]="product.Name" />
+  <div class="card-content">
+    <h5 class="card-title">{{ product.Name }}</h5>
+    <p class="card-text"><strong>Tipo:</strong> {{ product.Type }}</p>
+    <p class="card-price"><strong>Precio:</strong> ${{ product.Price }}</p>
+    <p class="card-text"><strong>Stock:</strong> {{ product.StockQuantity }}</p>
+    <button class="card-button">Añadir al carrito</button>
   </div>
 </div>

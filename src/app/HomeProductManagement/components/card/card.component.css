@@ -1,45 +1,61 @@
 .card {
   display: flex;
   flex-direction: column;
-  background-color: #1a202c; /* Fondo oscuro */
-  border: 1px solid #2d3748; /* Borde oscuro */
+  background-color: #fff; /* Fondo blanco */
+  border: 1px solid #e5e7eb; /* Borde claro */
   border-radius: 0.5rem; /* Esquinas redondeadas */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
-  transition: background-color 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .card:hover {
-  background-color: #2d3748; /* Fondo más oscuro al pasar el mouse */
+  transform: scale(1.05); /* Animación al pasar el mouse */
 }
 
 .card img {
   object-fit: cover;
   width: 100%;
-  height: 12rem; /* Altura de la imagen */
+  height: 10rem; /* Ajusta la altura de la imagen */
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
 }
 
 .card-content {
   padding: 1rem;
-  color: #e2e8f0; /* Texto claro */
+  color: #1f2937; /* Texto oscuro */
 }
 
 .card-title {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
-  color: #fff; /* Título blanco */
+  color: #111827; /* Título negro */
 }
 
 .card-text {
   font-size: 0.875rem;
-  margin-bottom: 0.5rem;
-  color: #cbd5e0; /* Texto más claro */
+  margin-bottom: 0.25rem; /* Espaciado reducido */
+  color: #6b7280; /* Texto gris */
 }
 
 .card-price {
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: bold;
-  color: #48bb78; /* Verde para el precio */
+  color: #10b981; /* Verde para el precio */
+}
+
+.card-button {
+  background-color: #2563eb; /* Azul brillante */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem; /* Botón más pequeño */
+  border-radius: 0.25rem;
+  font-size: 0.875rem; /* Texto más pequeño */
+  cursor: pointer;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.card-button:hover {
+  background-color: #1e40af; /* Fondo más oscuro al pasar el mouse */
 }
