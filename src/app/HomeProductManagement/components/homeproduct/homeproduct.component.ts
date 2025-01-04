@@ -21,7 +21,7 @@ export class HomeproductComponent implements OnInit {
   next: string| null = null;
   currentPage: number = 1;
   searchName: string = '';
-
+  type: string ='';
   constructor(private apiService: HomeproductService) {}
 
   ngOnInit(): void {
@@ -29,18 +29,28 @@ export class HomeproductComponent implements OnInit {
   }
 
   loadProducts() {
-    this.apiService.getProducts(this.searchName, 'all', 'asc', this.currentPage).subscribe({
-      next: (data) => {
-        console.log('Datos recibidos:', data);
-        this.products = data.products; // Asumiendo que la respuesta usa el campo 'products'
-        this.prev = data.pageNumber > 1 ? `?page=${data.pageNumber - 1}` : null; // Controlar paginación
-        this.next = (data.pageNumber * data.pageSize) < data.totalItems ? `?page=${data.pageNumber + 1}` : null;
-      },
-      error: (err) => {
-        console.error('Error al cargar productos:', err);
-      }
-    });
+    this.apiService
+      .getAvailableProducts(
+        this.searchName || undefined, // Evitar parámetros vacíos
+        this.type || undefined,
+        'asc',
+        this.currentPage,
+        10
+      )
+      .subscribe({
+        next: (data) => {
+          console.log('Datos recibidos:', data);
+          this.products = data.products; // Ajusta según la respuesta del backend
+          this.prev = data.pageNumber > 1 ? (data.pageNumber - 1).toString() : null;
+          this.next =
+            (data.pageNumber * data.pageSize) < data.totalItems ? (data.pageNumber + 1).toString() : null;
+        },
+        error: (err) => {
+          console.error('Error al cargar productos:', err);
+        },
+      });
   }
+
 
   onSearch(event: Event){
     const input = event.target as HTMLInputElement;
