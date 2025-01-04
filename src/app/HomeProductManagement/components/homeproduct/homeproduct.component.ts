@@ -40,10 +40,11 @@ export class HomeproductComponent implements OnInit {
       .subscribe({
         next: (data) => {
           console.log('Datos recibidos:', data);
-          this.products = data.products; // Ajusta según la respuesta del backend
-          this.prev = data.pageNumber > 1 ? (data.pageNumber - 1).toString() : null;
+          console.log('Productos: ', data.Products);
+          this.products = data.Products; // Ajusta según la respuesta del backend
+          this.prev = data.PageNumber > 1 ? (data.PageNumber - 1).toString() : null;
           this.next =
-            (data.pageNumber * data.pageSize) < data.totalItems ? (data.pageNumber + 1).toString() : null;
+            (data.PageNumber * data.PageSize) < data.TotalItems ? (data.PageNumber + 1).toString() : null;
         },
         error: (err) => {
           console.error('Error al cargar productos:', err);

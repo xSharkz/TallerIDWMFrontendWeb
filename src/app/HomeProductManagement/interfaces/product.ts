@@ -9,8 +9,8 @@ export interface Product {
 
 
 export interface ApiResponse {
-  totalItems: number;
-  pageNumber: number;
-  pageSize: number;
-  products: Product[];
+  TotalItems: number;
+  PageNumber: number;
+  PageSize: number;
+  Products: Product[];
 }
