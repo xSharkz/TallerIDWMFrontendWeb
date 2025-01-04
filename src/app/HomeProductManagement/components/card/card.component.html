@@ -1,0 +1,24 @@
+<a
+  href="#"
+  class="flex flex-col items-center bg-gray-200 border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-900"
+>
+  <img
+    class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
+    [src]="Product.imageUrl"
+    [alt]="Product.name"
+  />
+  <div class="flex flex-col justify-between p-4 leading-normal">
+    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+      {{ Product.name }}
+    </h5>
+    <p class="text-lg">
+      <strong>Precio:</strong> ${{ Product.price }}
+    </p>
+    <p class="text-lg">
+      <strong>Tipo:</strong> {{ Product.type }}
+    </p>
+    <p class="text-lg">
+      <strong>Cantidad en Stock:</strong> {{ Product.stockQuantity }}
+    </p>
+  </div>
+</a>
