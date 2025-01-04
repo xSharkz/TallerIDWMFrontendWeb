@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-register',
   imports: [FormsModule, CommonModule],
   templateUrl: './register.component.html',
-  styleUrls: ['/src/app/AuthManagement/components/register/register.component.css'],
+  styleUrls: ['./register.component.css'],
   standalone: true,
 })
 
