@@ -1,2 +1,20 @@
-<app-homeproduct></app-homeproduct>
+<div class="flex justify-between items-center bg-blue-500 p-4 text-white">
+  <h1 class="text-xl font-bold">Gestión de Productos</h1>
+  <div class="flex space-x-4">
+    <button
+      (click)="navigateTo('/login')"
+      class="px-4 py-2 bg-green-600 rounded hover:bg-green-700"
+    >
+      Login
+    </button>
+    <button
+      (click)="navigateTo('/register')"
+      class="px-4 py-2 bg-blue-600 rounded hover:bg-blue-700"
+    >
+      Register
+    </button>
+  </div>
+</div>
+
+
 <router-outlet></router-outlet>
