@@ -12,44 +12,46 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrls: ['./clientmanagement.component.css']
 })
 export class ClientmanagementComponent implements OnInit {
-  clients: Clients[]= [];
+  clients: Clients[] = []; // Inicializado como un arreglo vacío
   currentPage: number = 1;
   totalPages: number = 1;
   searchQuery: string = '';
 
-
-  constructor(private clientService: ClientmanagementService){}
-
+  constructor(private clientService: ClientmanagementService) {}
 
   ngOnInit(): void {
-      this.loadClients();
+    this.loadClients();
   }
 
-  loadClients():void{
-    this.clientService.getClients(this.searchQuery, this.currentPage).subscribe({next:(data)=>
-    {
-      this.clients = data.clients;
-      this.totalPages = data.totalPages;
-    },
-    error:(err)=>console.error('Error al cargar clientes: ', err),
+  loadClients(): void {
+    this.clientService.getClients(this.searchQuery, this.currentPage).subscribe({
+      next: (data) => {
+        console.log('Datos recibidos:', data);
+        this.clients = data.Items; // Asignar Items a clients
+        this.totalPages = data.TotalPages; // Asignar TotalPages a totalPages
+      },
+      error: (err) => {
+        console.error('Error al cargar clientes:', err);
+      },
     });
   }
 
-  onSearch(event:Event): void {
+  onSearch(event: Event): void {
     const input = event.target as HTMLInputElement;
     this.searchQuery = input.value.trim();
     this.currentPage = 1;
     this.loadClients();
   }
 
-  onPageChange(direction:boolean): void{
-    if(direction && this.currentPage < this.totalPages){
+  onPageChange(direction: boolean): void {
+    if (direction && this.currentPage < this.totalPages) {
       this.currentPage++;
-    }
-    else if(!direction && this.currentPage > 1){
+    } else if (!direction && this.currentPage > 1) {
       this.currentPage--;
     }
+    this.loadClients();
   }
+
   toggleClienteStatus(clienteId: number, status: boolean): void {
     this.clientService.toggleClientStatus(clienteId, status).subscribe({
       next: () => {

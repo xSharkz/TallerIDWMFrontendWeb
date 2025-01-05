@@ -8,6 +8,6 @@ export interface Clients{
 }
 
 export interface ClientResponse{
-  clients: Clients[];
-  totalPages: number;
+  Items: Clients[];
+  TotalPages: number;
 }
