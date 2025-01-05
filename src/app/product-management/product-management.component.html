@@ -1,0 +1,52 @@
+<div class="container">
+  <h2 class="title">Gestión de Productos</h2>
+
+  <!-- Barra de búsqueda -->
+  <div class="search-bar">
+    <input
+      type="text"
+      placeholder="Buscar producto"
+      [(ngModel)]="searchTerm"
+      (input)="filterProducts()"
+    />
+  </div>
+
+  <!-- Botón para agregar producto -->
+  <div class="actions">
+    <button (click)="openAddProductForm()">Agregar Producto</button>
+  </div>
+
+  <!-- Tabla de productos -->
+  <table class="product-table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Tipo</th>
+        <th>Precio</th>
+        <th>Stock</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of paginatedProducts">
+        <td>{{ product.name }}</td>
+        <td>{{ product.type }}</td>
+        <td>{{ product.stock }}</td>
+        <td>
+          <button (click)="openEditProductForm(product)">Editar</button>
+          <button (click)="deleteProduct(product.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Paginación -->
+  <div class="pagination">
+    <button [disabled]="currentPage === 1" (click)="previousPage()">Anterior</button>
+    <button
+      [disabled]="currentPage === totalPages"
+      (click)="nextPage()"
+    >
+      Siguiente
+    </button>
+  </div>
+</div>
