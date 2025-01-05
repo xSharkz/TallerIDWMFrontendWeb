@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { UserService } from '../services/user.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-change-password',
   templateUrl: './change-password.component.html',
-  imports: [UserService],
+  imports: [ReactiveFormsModule, FormsModule],
+  providers: [UserService],
   styleUrls: ['./change-password.component.css'],
 })
 export class ChangePasswordComponent {

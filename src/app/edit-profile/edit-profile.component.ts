@@ -6,8 +6,10 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
   styleUrls: ['./edit-profile.component.css'],
+  providers : [UserService],
   imports: [FormsModule],
 })
+
 export class EditProfileComponent implements OnInit {
   userProfile = {
     name: '',
