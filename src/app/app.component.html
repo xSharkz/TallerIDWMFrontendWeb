@@ -1,20 +1,31 @@
 <div class="flex justify-between items-center bg-blue-500 p-4 text-white">
   <h1 class="text-xl font-bold">Gestión de Productos</h1>
   <div class="flex space-x-4">
+    <!-- Botón de Login: visible solo si NO está autenticado -->
     <button
+      *ngIf="!isAuthenticated"
       (click)="navigateTo('/login')"
       class="px-4 py-2 bg-green-600 rounded hover:bg-green-700"
     >
       Login
     </button>
+    <!-- Botón de Register: visible solo si NO está autenticado -->
     <button
+      *ngIf="!isAuthenticated"
       (click)="navigateTo('/register')"
       class="px-4 py-2 bg-blue-600 rounded hover:bg-blue-700"
     >
       Register
     </button>
+    <!-- Botón de Logout: visible solo si está autenticado -->
+    <button
+      *ngIf="isAuthenticated"
+      (click)="logout()"
+      class="px-4 py-2 bg-red-600 rounded hover:bg-red-700"
+    >
+      Logout
+    </button>
   </div>
 </div>
-
 
 <router-outlet></router-outlet>

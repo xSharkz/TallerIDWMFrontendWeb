@@ -35,6 +35,8 @@
   border: none;
   border-radius: 5px;
   box-sizing: border-box;
+  color: #000; /* Color del texto */
+  background-color: #ffffff; /* Fondo blanco para contraste */
 }
 
 .login-form button.btn {
