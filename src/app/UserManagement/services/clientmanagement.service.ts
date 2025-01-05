@@ -3,6 +3,7 @@ import { HttpClient,HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ClientResponse } from '../interfaces/Clients';
 import { tap } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,8 +22,12 @@ export class ClientmanagementService {
     );
   }
 
-  toggleClientStatus(clientId:number, status:boolean):Observable<void>{
-    return this.http.patch<void>(`${this.apiUrl}/${clientId}/status`,{ activo: status });
+  toggleClientStatus(UserId: number, IsEnabled: boolean): Observable<any> {
+    const formData = new FormData();
+    formData.append('UserId', UserId.toString());
+    formData.append('IsEnabled', IsEnabled.toString());
+
+    return this.http.put('http://localhost:5220/api/User/update-status', formData);
   }
 
 }

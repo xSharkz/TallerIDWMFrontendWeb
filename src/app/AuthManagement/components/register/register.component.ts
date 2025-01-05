@@ -28,16 +28,20 @@ export class RegisterComponent {
   constructor(private authService: AuthService){}
 
   register(): void {
+    if (!this.userData.ConfirmPassword) {
+      alert('El campo ConfirmPassword es obligatorio.');
+      return;
+    }
     if (this.userData.Password !== this.userData.ConfirmPassword) {
-      alert('Las contraseñas no coinciden');
+      alert('Las contraseñas no coinciden.');
       return;
     }
     if (!this.isValidRUT(this.userData.Rut)) {
-      alert('RUT no válido');
+      alert('El RUT ingresado no es válido. Por favor, asegúrate de ingresar un RUT real y correctamente formateado (Ej: 12345678-9).');
       return;
     }
 
-    // Crear un objeto FormData
+
     const formData = new FormData();
     formData.append('Rut', this.userData.Rut);
     formData.append('Name', this.userData.Name);
@@ -45,19 +49,35 @@ export class RegisterComponent {
     formData.append('Email', this.userData.Email);
     formData.append('Gender', this.userData.Gender);
     formData.append('Password', this.userData.Password);
+    formData.append('ConfirmPassword', this.userData.ConfirmPassword);
 
-    // Llamar al servicio de registro
     this.authService.register(formData).subscribe({
       next: () => alert('Registro exitoso'),
       error: (err) => {
-        console.error('Error al registrarse:', err);
-        alert('Error al registrarse: ' + (err.error?.Message || 'Por favor, verifica los datos.'));
+        console.error('Errores de validación del backend:', err.error?.errors);
+        alert(
+          'Error al registrarse: ' +
+            (err.error?.title || 'Verifica los datos ingresados.')
+        );
       },
     });
   }
 
-  isValidRUT(rut: string): boolean{
-    const rutPattern = /^[0-9]{1,8}-[0-9kK]{1}$/;
-    return rutPattern.test(rut);
+
+  isValidRUT(rut: string): boolean {
+    console.log(`Validando RUT: ${rut}`);
+
+    // Eliminar puntos y espacios adicionales
+    rut = rut.replace(/\./g, '').replace(/\s+/g, '');
+    console.log(`RUT normalizado: ${rut}`);
+
+    // Validar formato general (cuerpo numérico y dígito verificador separados por un guion)
+    const rutRegex = /^\d+-[0-9Kk]$/;
+    const isValidFormat = rutRegex.test(rut);
+
+    console.log(`El formato del RUT es válido: ${isValidFormat}`);
+    return isValidFormat;
   }
+
+
 }

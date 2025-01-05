@@ -12,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrls: ['./clientmanagement.component.css']
 })
 export class ClientmanagementComponent implements OnInit {
-  clients: Clients[] = []; // Inicializado como un arreglo vacío
+  clients: Clients[] = [];
   currentPage: number = 1;
   totalPages: number = 1;
   searchQuery: string = '';
@@ -27,8 +27,8 @@ export class ClientmanagementComponent implements OnInit {
     this.clientService.getClients(this.searchQuery, this.currentPage).subscribe({
       next: (data) => {
         console.log('Datos recibidos:', data);
-        this.clients = data.Items; // Asignar Items a clients
-        this.totalPages = data.TotalPages; // Asignar TotalPages a totalPages
+        this.clients = data.Items;
+        this.totalPages = data.TotalPages;
       },
       error: (err) => {
         console.error('Error al cargar clientes:', err);
@@ -52,15 +52,16 @@ export class ClientmanagementComponent implements OnInit {
     this.loadClients();
   }
 
-  toggleClienteStatus(clienteId: number, status: boolean): void {
-    this.clientService.toggleClientStatus(clienteId, status).subscribe({
-      next: () => {
-        alert(
-          `Cliente ${status ? 'habilitado' : 'deshabilitado'} con éxito.`
-        );
+  toggleClienteStatus(UserId: number, IsEnabled: boolean): void {
+    this.clientService.toggleClientStatus(UserId, IsEnabled).subscribe({
+      next: (response) => {
+        alert(response.message || `Cliente ${IsEnabled ? 'habilitado' : 'deshabilitado'} con éxito.`);
         this.loadClients();
       },
-      error: (err) => console.error('Error al actualizar cliente:', err),
+      error: (err) => {
+        console.error('Error al actualizar cliente:', err);
+        alert(err.error?.message || 'Error al actualizar el cliente. Verifica los datos e intenta de nuevo.');
+      },
     });
   }
 }

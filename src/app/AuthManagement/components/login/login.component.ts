@@ -17,7 +17,7 @@ export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
   login(): void {
-    // Validaciones básicas
+
     if (!this.Email || !this.Email.includes('@')) {
       alert('Por favor, ingrese un email válido.');
       return;
@@ -28,7 +28,7 @@ export class LoginComponent {
       return;
     }
 
-    // Crear objeto FormData
+
     const formData = new FormData();
     formData.append('Email', this.Email);
     formData.append('Password', this.Password);
@@ -37,11 +37,12 @@ export class LoginComponent {
       next: (response) => {
         console.log('Inicio de sesión exitoso:', response);
         localStorage.setItem('token', response.Token);
-        this.router.navigate(['/clients']); // Redirigir a la página de clientes
+        this.router.navigate(['/clients']);
       },
       error: (err) => {
         console.error('Error al iniciar sesión:', err);
-        alert(err.error?.Message || 'Credenciales incorrectas.');
+        const errorMessage = err.error ||'Ocurrio un error inesperado. Intente nuevamente';
+        alert(errorMessage);
       }
     });
   }
