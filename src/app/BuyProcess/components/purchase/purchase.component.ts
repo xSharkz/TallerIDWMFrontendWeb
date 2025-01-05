@@ -8,6 +8,7 @@ import { PurchaseService } from '../../services/purchase.service';
   templateUrl: './purchase.component.html',
   styleUrls: ['./purchase.component.css'],
   imports:[CommonModule, FormsModule],
+  standalone: true,
 })
 export class PurchaseComponent {
   address = {
