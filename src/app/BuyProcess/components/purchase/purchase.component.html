@@ -1,0 +1,53 @@
+<div class="purchase-container">
+  <h1>Confirmar Compra</h1>
+
+  <!-- Formulario de dirección -->
+  <div class="address-form">
+    <h2>Dirección de Entrega</h2>
+    <form>
+      <label for="country">País:</label>
+      <input id="country" type="text" [(ngModel)]="address.country" name="country" placeholder="Ingrese su país" required />
+
+      <label for="city">Ciudad:</label>
+      <input id="city" type="text" [(ngModel)]="address.city" name="city" placeholder="Ingrese su ciudad" required />
+
+      <label for="commune">Comuna:</label>
+      <input id="commune" type="text" [(ngModel)]="address.commune" name="commune" placeholder="Ingrese su comuna" required />
+
+      <label for="street">Calle:</label>
+      <input id="street" type="text" [(ngModel)]="address.street" name="street" placeholder="Ingrese su calle" required />
+    </form>
+  </div>
+
+  <!-- Resumen de la compra -->
+  <div class="order-summary">
+    <h2>Resumen de Compra</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Precio Unitario</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of orderItems">
+          <td>{{ item.name }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>{{ item.unitPrice | currency }}</td>
+          <td>{{ (item.quantity * item.unitPrice) | currency }}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3"><strong>Total</strong></td>
+          <td><strong>{{ getTotal() | currency }}</strong></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <!-- Botón de confirmar -->
+  <button (click)="confirmPurchase()">Confirmar Compra</button>
+</div>
