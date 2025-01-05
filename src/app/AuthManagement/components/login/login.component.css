@@ -1,0 +1,64 @@
+/* src/app/AuthManagement/components/login/login.component.css */
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+}
+
+.login-container {
+  background-color: #007bff;
+  padding: 50px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.login-container h2 {
+  font-size: 30px;
+  color: #ffffff;
+  margin-bottom: 40px;
+}
+
+.login-form {
+  width: 100%;
+}
+
+.login-form .form-group {
+  margin-bottom: 30px;
+}
+
+.login-form label {
+  font-size: 25px;
+  color: #ffffff;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.login-form button.btn {
+  width: 100%;
+  background-color: #0056b3;
+  color: white;
+  padding: 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-form button.btn:hover {
+  background-color: #004080;
+}
