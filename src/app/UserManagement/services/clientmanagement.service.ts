@@ -7,7 +7,7 @@ import { ClientResponse } from '../interfaces/Clients';
   providedIn: 'root'
 })
 export class ClientmanagementService {
-  private apiUrl='http://localhost:5220/api/User/';
+  private apiUrl='http://localhost:5220/api/User/customers';
   constructor(private http: HttpClient) { }
 
 
