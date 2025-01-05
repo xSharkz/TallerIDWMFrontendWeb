@@ -9,6 +9,7 @@
     >
       Login
     </button>
+
     <!-- Botón de Register: visible solo si NO está autenticado -->
     <button
       *ngIf="!isAuthenticated"
@@ -17,6 +18,7 @@
     >
       Register
     </button>
+
     <!-- Botón de Logout: visible solo si está autenticado -->
     <button
       *ngIf="isAuthenticated"
@@ -24,6 +26,15 @@
       class="px-4 py-2 bg-red-600 rounded hover:bg-red-700"
     >
       Logout
+    </button>
+
+    <!-- Botón de Ver Clientes: visible solo si el usuario es admin -->
+    <button
+      *ngIf="isAdmin"
+      (click)="navigateTo('/clients')"
+      class="px-4 py-2 bg-purple-600 rounded hover:bg-purple-700"
+    >
+      Ver Clientes
     </button>
   </div>
 </div>

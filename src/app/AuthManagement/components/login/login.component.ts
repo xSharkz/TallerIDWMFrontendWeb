@@ -3,6 +3,7 @@ import { AuthService } from '../../services/auth.service';
 import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { AppComponent } from '../../../app.component';
 
 @Component({
   selector: 'app-login',
@@ -40,10 +41,11 @@ export class LoginComponent {
 
         // Almacena el token
         localStorage.setItem('token', response.Token);
-
+        localStorage.setItem('email', this.Email);
+        const isAdmin = this.Email.endsWith('@idwm.cl');
         // Verifica el correo para redirigir según el dominio
-        if (this.Email.endsWith('@idwm.cl')) {
-          this.router.navigate(['/clients']);
+        if (isAdmin) {
+          this.router.navigate(['/home']);
         } else {
           this.router.navigate(['/home']);
         }

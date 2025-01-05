@@ -27,7 +27,7 @@ export class HomeproductService {
     params = params.set('pageNumber', pageNumber.toString());
     params = params.set('pageSize', pageSize.toString());
 
-    return this.http.get<ApiResponse>('http://localhost:5220/api/Product/available', { params });
+    return this.http.get<ApiResponse>(this.apiUrl, { params });
   }
 
 
