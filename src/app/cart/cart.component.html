@@ -1,17 +1,19 @@
-<div *ngIf="cartItems.length; else emptyCart">
-  <h2>Carrito de Compras</h2>
-  <div *ngFor="let item of cartItems" class="cart-item">
-    <h3>{{ item.name }}</h3>
-    <p>Precio: {{ item.price | currency }}</p>
-    <p>Cantidad:</p>
-    <button (click)="updateQuantity(item.id, item.quantity - 1)" [disabled]="item.quantity <= 1">-</button>
-    {{ item.quantity }}
-    <button (click)="updateQuantity(item.id, item.quantity + 1)">+</button>
-    <button (click)="deleteItem(item.id)">Eliminar</button>
+<div class="cart-page">
+  <div *ngIf="cartItems.length; else emptyCart" class="cart-container">
+    <h2>Carrito de Compras</h2>
+    <div *ngFor="let item of cartItems" class="cart-item">
+      <h3>{{ item.name }}</h3>
+      <p class="item-price">Precio: {{ item.price | currency }}</p>
+      <p>Cantidad:</p>
+      <button (click)="updateQuantity(item.id, item.quantity - 1)" [disabled]="item.quantity <= 1">-</button>
+      {{ item.quantity }}
+      <button (click)="updateQuantity(item.id, item.quantity + 1)">+</button>
+      <button (click)="deleteItem(item.id)">Eliminar</button>
+    </div>
+    <h3>Total a pagar: <span class="item-price">{{ totalPrice | currency }}</span></h3>
+    <button (click)="checkout()">Pagar</button>
   </div>
-  <h3>Total a pagar: {{ totalPrice | currency }}</h3>
-  <button (click)="checkout()">Pagar</button>
+  <ng-template #emptyCart>
+    <h2>Tu carrito está vacío</h2>
+  </ng-template>
 </div>
-<ng-template #emptyCart>
-  <h2>Tu carrito está vacío</h2>
-</ng-template>

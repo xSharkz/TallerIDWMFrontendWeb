@@ -1,0 +1,47 @@
+/* Aseguramos que el contenedor principal ocupe toda la pantalla */
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.cart-page {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  height: 100%; /* Altura completa */
+  background-color: #f0f0f0; /* Opcional: un fondo neutro */
+}
+
+.cart-container {
+  background-color: #1689FE; /* Fondo del contenedor */
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%; /* Ancho máximo relativo */
+  max-width: 600px; /* Limitar ancho máximo */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Opcional: sombra para mejor estética */
+}
+
+.cart-item {
+  background-color: #6DC6FE; /* Fondo de la "tabla" o items */
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.item-price {
+  color: #04FF82; /* Color para los precios */
+  font-weight: bold;
+}
+
+button {
+  margin: 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
