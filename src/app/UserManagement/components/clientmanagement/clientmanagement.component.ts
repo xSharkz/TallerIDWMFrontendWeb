@@ -3,10 +3,11 @@ import { Clients } from '../../interfaces/Clients';
 import { ClientmanagementService } from '../../services/clientmanagement.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-clientmanagement',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, HttpClientModule],
   templateUrl: './clientmanagement.component.html',
   styleUrls: ['./clientmanagement.component.css']
 })
@@ -27,7 +28,7 @@ export class ClientmanagementComponent implements OnInit {
   loadClients():void{
     this.clientService.getClients(this.searchQuery, this.currentPage).subscribe({next:(data)=>
     {
-      this.clients = data.clientes;
+      this.clients = data.clients;
       this.totalPages = data.totalPages;
     },
     error:(err)=>console.error('Error al cargar clientes: ', err),

@@ -1,11 +1,13 @@
 export interface Clients{
-  id:number;
-  nombre: string;
-  email: string;
-  activo: boolean;
+  Id:number;
+  Rut: string;
+  Name: string;
+  Email: string;
+  Gender: string;
+  IsEnabled: boolean;
 }
 
 export interface ClientResponse{
-  clientes: Clients[];
+  clients: Clients[];
   totalPages: number;
 }
