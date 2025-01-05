@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
-  imports: [UserService],
   styleUrls: ['./edit-profile.component.css'],
+  imports: [FormsModule],
 })
 export class EditProfileComponent implements OnInit {
   userProfile = {
