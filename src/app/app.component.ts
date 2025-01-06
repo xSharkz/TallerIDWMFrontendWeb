@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { initFlowbite } from 'flowbite';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterOutlet } from '@angular/router';
-import { Router } from '@angular/router';
+import { ActivatedRoute,Router,NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
-
+import { filter } from 'rxjs';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -13,16 +13,18 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
+  tittle = 'Gestion de productos'
   isAdmin = false; // Determina si el usuario es administrador
   isAuthenticated = false; // Determina si el usuario está autenticado
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
   title = 'TallerIDWMFrontendWeb';
 
   ngOnInit(): void {
     initFlowbite();
     this.checkAuthentication(); // Verifica el estado de autenticación al cargar
+    this.setTitleBasedOnRoute();
     window.addEventListener('storage', ()=> this.checkAuthentication());
   }
 
@@ -48,5 +50,27 @@ export class AppComponent implements OnInit {
     this.isAuthenticated = false;
     this.isAdmin = false;
     this.router.navigate(['/login']);
+  }
+
+  setTitleBasedOnRoute(): void {
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => {
+        const currentRoute = this.route.root.firstChild?.snapshot.routeConfig?.path;
+
+        switch (currentRoute) {
+          case 'home':
+            this.title = 'Tienda de Productos';
+            break;
+          case 'clients':
+            this.title = 'Gestión de Clientes';
+            break;
+          case 'buy':
+            this.title = 'Gestión de Órdenes';
+            break;
+          default:
+            this.title = '';
+        }
+      });
   }
 }

@@ -1,7 +1,7 @@
 <div class="flex justify-between items-center bg-blue-500 p-4 text-white">
-  <h1 class="text-xl font-bold">Gestión de Productos</h1>
+  <h1 class="text-xl font-bold">{{ title }}</h1>
   <div class="flex space-x-4">
-    <!-- Botón de Login: visible solo si NO está autenticado -->
+    <!-- Botón de Login -->
     <button
       *ngIf="!isAuthenticated"
       (click)="navigateTo('/login')"
@@ -10,7 +10,7 @@
       Login
     </button>
 
-    <!-- Botón de Register: visible solo si NO está autenticado -->
+    <!-- Botón de Register -->
     <button
       *ngIf="!isAuthenticated"
       (click)="navigateTo('/register')"
@@ -19,7 +19,7 @@
       Register
     </button>
 
-    <!-- Botón de Logout: visible solo si está autenticado -->
+    <!-- Botón de Logout -->
     <button
       *ngIf="isAuthenticated"
       (click)="logout()"
@@ -28,13 +28,22 @@
       Logout
     </button>
 
-    <!-- Botón de Ver Clientes: visible solo si el usuario es admin -->
+    <!-- Botón de Ver Clientes -->
     <button
       *ngIf="isAdmin"
       (click)="navigateTo('/clients')"
       class="px-4 py-2 bg-purple-600 rounded hover:bg-purple-700"
     >
       Ver Clientes
+    </button>
+
+    <!-- Botón de Ver Ordenes -->
+    <button
+      *ngIf="isAdmin"
+      (click)="navigateTo('/buy')"
+      class="px-4 py-2 bg-purple-600 rounded hover:bg-purple-700"
+    >
+      Ver Órdenes
     </button>
   </div>
 </div>
