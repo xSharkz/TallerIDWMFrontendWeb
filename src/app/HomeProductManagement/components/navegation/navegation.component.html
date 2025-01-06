@@ -1,4 +1,6 @@
+<!-- Contenedor para los botones de navegación -->
 <div class="flex space-x-4">
+  <!-- Botón para navegar a la página anterior -->
   <button
     (click)="navigate(false)"
     [disabled]="!prev"
@@ -6,6 +8,8 @@
   >
     Anterior
   </button>
+
+  <!-- Botón para navegar a la página siguiente -->
   <button
     (click)="navigate(true)"
     [disabled]="!next"

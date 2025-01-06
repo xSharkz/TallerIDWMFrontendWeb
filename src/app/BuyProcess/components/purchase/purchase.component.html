@@ -5,17 +5,49 @@
   <div class="address-form">
     <h2>Dirección de Entrega</h2>
     <form>
+      <!-- Campo para ingresar el país -->
       <label for="country">País:</label>
-      <input id="country" type="text" [(ngModel)]="address.country" name="country" placeholder="Ingrese su país" required />
+      <input
+        id="country"
+        type="text"
+        [(ngModel)]="address.country"
+        name="country"
+        placeholder="Ingrese su país"
+        required
+      />
 
+      <!-- Campo para ingresar la ciudad -->
       <label for="city">Ciudad:</label>
-      <input id="city" type="text" [(ngModel)]="address.city" name="city" placeholder="Ingrese su ciudad" required />
+      <input
+        id="city"
+        type="text"
+        [(ngModel)]="address.city"
+        name="city"
+        placeholder="Ingrese su ciudad"
+        required
+      />
 
+      <!-- Campo para ingresar la comuna -->
       <label for="commune">Comuna:</label>
-      <input id="commune" type="text" [(ngModel)]="address.commune" name="commune" placeholder="Ingrese su comuna" required />
+      <input
+        id="commune"
+        type="text"
+        [(ngModel)]="address.commune"
+        name="commune"
+        placeholder="Ingrese su comuna"
+        required
+      />
 
+      <!-- Campo para ingresar la calle -->
       <label for="street">Calle:</label>
-      <input id="street" type="text" [(ngModel)]="address.street" name="street" placeholder="Ingrese su calle" required />
+      <input
+        id="street"
+        type="text"
+        [(ngModel)]="address.street"
+        name="street"
+        placeholder="Ingrese su calle"
+        required
+      />
     </form>
   </div>
 
@@ -32,6 +64,7 @@
         </tr>
       </thead>
       <tbody>
+        <!-- Itera sobre los artículos de la orden -->
         <tr *ngFor="let item of orderItems">
           <td>{{ item.name }}</td>
           <td>{{ item.quantity }}</td>
@@ -41,6 +74,7 @@
       </tbody>
       <tfoot>
         <tr>
+          <!-- Total general de la compra -->
           <td colspan="3"><strong>Total</strong></td>
           <td><strong>{{ getTotal() | currency }}</strong></td>
         </tr>
@@ -48,6 +82,6 @@
     </table>
   </div>
 
-  <!-- Botón de confirmar -->
+  <!-- Botón para confirmar la compra -->
   <button (click)="confirmPurchase()">Confirmar Compra</button>
 </div>

@@ -1,46 +1,102 @@
-<!-- src/app/AuthManagement/components/register/register.component.html -->
+<!--
+src/app/AuthManagement/components/register/register.component.html
+Este componente representa la interfaz de usuario para el registro de un usuario en el sistema.
+Contiene un formulario con los campos requeridos para recopilar los datos del usuario.
+-->
+
 <div class="register-container">
+  <!-- Título del formulario -->
   <h2>Registro</h2>
 
+  <!-- Formulario de registro -->
   <form (ngSubmit)="register()" class="register-form">
+    <!-- Campo para el RUT -->
     <div class="form-group">
       <label for="rut">RUT</label>
-      <input type="text" id="rut" [(ngModel)]="userData.Rut" name="rut" required placeholder="Ingrese su RUT">
+      <input
+        type="text"
+        id="rut"
+        [(ngModel)]="userData.Rut"
+        name="rut"
+        required
+        placeholder="Ingrese su RUT">
     </div>
 
+    <!-- Campo para el Nombre Completo -->
     <div class="form-group">
       <label for="name">Nombre Completo</label>
-      <input type="text" id="name" [(ngModel)]="userData.Name" name="name" required placeholder="Ingrese su nombre">
+      <input
+        type="text"
+        id="name"
+        [(ngModel)]="userData.Name"
+        name="name"
+        required
+        placeholder="Ingrese su nombre">
     </div>
 
+    <!-- Campo para la Fecha de Nacimiento -->
     <div class="form-group">
       <label for="birthDate">Fecha de Nacimiento</label>
-      <input type="date" id="birthDate" [(ngModel)]="userData.BirthDate" name="birthDate" required>
+      <input
+        type="date"
+        id="birthDate"
+        [(ngModel)]="userData.BirthDate"
+        name="birthDate"
+        required>
     </div>
 
+    <!-- Campo para el Email -->
     <div class="form-group">
       <label for="email">Email</label>
-      <input type="email" id="email" [(ngModel)]="userData.Email" name="email" required placeholder="Ingrese su email">
+      <input
+        type="email"
+        id="email"
+        [(ngModel)]="userData.Email"
+        name="email"
+        required
+        placeholder="Ingrese su email">
     </div>
 
+    <!-- Campo para el Género -->
     <div class="form-group">
       <label for="gender">Género</label>
-      <select id="gender" [(ngModel)]="userData.Gender" name="gender" required>
+      <select
+        id="gender"
+        [(ngModel)]="userData.Gender"
+        name="gender"
+        required>
+        <!-- Opción por defecto -->
         <option value="" disabled selected>Seleccione su género</option>
+        <!-- Opciones dinámicas basadas en la lista de géneros -->
         <option *ngFor="let gender of genders" [value]="gender">{{ gender }}</option>
       </select>
     </div>
 
+    <!-- Campo para la Contraseña -->
     <div class="form-group">
       <label for="password">Contraseña</label>
-      <input type="password" id="password" [(ngModel)]="userData.Password" name="password" required placeholder="Ingrese su contraseña">
+      <input
+        type="password"
+        id="password"
+        [(ngModel)]="userData.Password"
+        name="password"
+        required
+        placeholder="Ingrese su contraseña">
     </div>
 
+    <!-- Campo para Confirmar la Contraseña -->
     <div class="form-group">
       <label for="confirmPassword">Confirmar Contraseña</label>
-      <input type="password" id="confirmPassword" [(ngModel)]="userData.ConfirmPassword" name="confirmPassword" required placeholder="Confirme su contraseña">
+      <input
+        type="password"
+        id="confirmPassword"
+        [(ngModel)]="userData.ConfirmPassword"
+        name="confirmPassword"
+        required
+        placeholder="Confirme su contraseña">
     </div>
 
+    <!-- Botón para enviar el formulario -->
     <button type="submit" class="btn">Registrar</button>
   </form>
 </div>

@@ -1,16 +1,25 @@
 <div class="container mx-auto p-4">
-  <h1 class="text-center text-2xl font-bold mb-6 text-gray-100">Productos Disponibles</h1>
+  <!-- Encabezado Principal -->
+  <h1 class="text-center text-2xl font-bold mb-6 text-gray-100">
+    <!-- Título de la página -->
+    Productos Disponibles
+  </h1>
 
   <!-- Filtros y Ordenamiento -->
   <div class="flex flex-wrap justify-between items-center mb-6 gap-4">
+    <!-- Filtro por Tipo -->
     <div class="w-full sm:w-auto">
-      <label for="filterType" class="block text-white text-sm mb-1">Filtrar por Tipo</label>
+      <label for="filterType" class="block text-white text-sm mb-1">
+        <!-- Etiqueta del filtro -->
+        Filtrar por Tipo
+      </label>
       <select
         id="filterType"
         class="p-2 border border-gray-300 rounded bg-white text-gray-900 shadow-sm w-full"
         [(ngModel)]="type"
         (change)="onFilterType($event)"
       >
+        <!-- Opciones de filtro -->
         <option value="">Todos</option>
         <option value="Poleras">Poleras</option>
         <option value="Gorros">Gorros</option>
@@ -18,21 +27,30 @@
       </select>
     </div>
 
+    <!-- Ordenar por Precio -->
     <div class="w-full sm:w-auto">
-      <label for="sortOrder" class="block text-white text-sm mb-1">Ordenar por Precio</label>
+      <label for="sortOrder" class="block text-white text-sm mb-1">
+        <!-- Etiqueta del ordenamiento -->
+        Ordenar por Precio
+      </label>
       <select
         id="sortOrder"
         class="p-2 border border-gray-300 rounded bg-white text-gray-900 shadow-sm w-full"
         [(ngModel)]="sortOrder"
         (change)="onSortOrder($event)"
       >
+        <!-- Opciones de ordenamiento -->
         <option value="asc">Ascendente</option>
         <option value="desc">Descendente</option>
       </select>
     </div>
 
+    <!-- Buscar por Nombre -->
     <div class="w-full sm:w-1/3">
-      <label for="searchName" class="block text-white text-sm mb-1">Buscar por Nombre</label>
+      <label for="searchName" class="block text-white text-sm mb-1">
+        <!-- Etiqueta del campo de búsqueda -->
+        Buscar por Nombre
+      </label>
       <input
         id="searchName"
         type="text"
@@ -49,15 +67,22 @@
       [prev]="prev"
       [next]="next"
       (onNavigate)="onPageChange($event)"
-    ></app-navegation>
+    >
+      <!-- Componente de navegación para cambiar de página -->
+    </app-navegation>
   </div>
 
   <!-- Productos -->
   <div *ngIf="products && products.length > 0; else noResults" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <!-- Genera tarjetas para cada producto -->
     <app-card *ngFor="let product of products" [product]="product"></app-card>
   </div>
 
+  <!-- Mensaje de "Sin Resultados" -->
   <ng-template #noResults>
-    <p class="text-center text-gray-500">No se encontraron productos.</p>
+    <p class="text-center text-gray-500">
+      <!-- Mensaje que aparece si no hay productos disponibles -->
+      No se encontraron productos.
+    </p>
   </ng-template>
 </div>

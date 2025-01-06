@@ -1,10 +1,33 @@
 <div class="card">
-  <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" [src]="product.ImageUrl" [alt]="product.Name" />
+  <!-- Imagen del producto -->
+  <img
+    class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
+    [src]="product.ImageUrl"
+    [alt]="product.Name"
+  />
+  <!-- Contenedor del contenido dentro de la tarjeta -->
   <div class="card-content">
+    <!-- Nombre del producto -->
     <h5 class="card-title">{{ product.Name }}</h5>
-    <p class="card-text"><strong>Tipo:</strong> {{ product.Type }}</p>
-    <p class="card-price"><strong>Precio:</strong> ${{ product.Price }}</p>
-    <p class="card-text"><strong>Stock:</strong> {{ product.StockQuantity }}</p>
-    <button class="card-button">Añadir al carrito</button>
+
+    <!-- Tipo del producto -->
+    <p class="card-text">
+      <strong>Tipo:</strong> {{ product.Type }}
+    </p>
+
+    <!-- Precio del producto -->
+    <p class="card-price">
+      <strong>Precio:</strong> ${{ product.Price }}
+    </p>
+
+    <!-- Cantidad en stock del producto -->
+    <p class="card-text">
+      <strong>Stock:</strong> {{ product.StockQuantity }}
+    </p>
+
+    <!-- Botón para añadir al carrito -->
+    <button class="card-button">
+      Añadir al carrito
+    </button>
   </div>
 </div>

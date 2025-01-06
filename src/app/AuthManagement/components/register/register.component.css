@@ -1,58 +1,83 @@
 /* src/app/AuthManagement/components/register/register.component.css */
 
-.register-container {
-  background-color: #007bff;
-  padding: 20px 50px;
-  border-radius: 10px;
-  width: 100%;
-  max-width: 500px;
-  margin: 20px auto;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+/**
+ * Estilo principal del contenedor del formulario de registro.
+ * Define un fondo azul, bordes redondeados y una sombra para darle un diseño limpio.
+ */
+ .register-container {
+  background-color: #007bff; /* Fondo azul */
+  padding: 20px 50px; /* Espaciado interno */
+  border-radius: 10px; /* Bordes redondeados */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  max-width: 500px; /* Ancho máximo */
+  margin: 20px auto; /* Centrado horizontal con margen superior e inferior */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para el contenedor */
 }
 
-
-
-
+/**
+ * Estilo del título del formulario.
+ * Ajusta el tamaño de la fuente, el color y el espaciado inferior.
+ */
 .register-container h2 {
-  font-size: 30px;
-  color: #ffffff;
-  text-align: center;
-  margin-bottom: 40px;
+  font-size: 30px; /* Tamaño grande para el título */
+  color: #ffffff; /* Color blanco */
+  text-align: center; /* Texto centrado */
+  margin-bottom: 40px; /* Espaciado inferior */
 }
 
+/**
+ * Estilo para cada grupo de campos dentro del formulario.
+ * Define el margen inferior entre los elementos.
+ */
 .register-form .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 20px; /* Espaciado inferior */
 }
 
+/**
+ * Estilo para las etiquetas de los campos del formulario.
+ * Ajusta el tamaño de la fuente, el color y el margen inferior.
+ */
 .register-form label {
-  font-size: 20px;
-  color: #f1f1f1;
-  display: block;
-  margin-bottom: 10px;
+  font-size: 20px; /* Tamaño de texto mediano */
+  color: #f1f1f1; /* Color claro */
+  display: block; /* Asegura que ocupe toda la línea */
+  margin-bottom: 10px; /* Espaciado inferior */
 }
 
-.register-form input, .register-form select {
-  width: 100%;
-  padding: 15px;
-  font-size: 18px;
-  border: none;
-  border-radius: 5px;
-  box-sizing: border-box;
+/**
+ * Estilo para los campos de entrada y los desplegables.
+ * Define el ancho completo, el relleno interno, el tamaño de la fuente y los bordes.
+ */
+.register-form input,
+.register-form select {
+  width: 100%; /* Ocupa todo el ancho */
+  padding: 15px; /* Espaciado interno */
+  font-size: 18px; /* Tamaño de texto */
+  border: none; /* Sin bordes */
+  border-radius: 5px; /* Bordes redondeados */
+  box-sizing: border-box; /* Incluye el relleno y el borde en el tamaño total */
 }
 
-
+/**
+ * Estilo para el botón de registro.
+ * Define el fondo azul, el texto blanco y la transición de color en el hover.
+ */
 .register-form button.btn {
-  width: 100%;
-  background-color: #0056b3;
-  color: white;
-  padding: 20px;
-  font-size: 18px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  width: 100%; /* Ocupa todo el ancho */
+  background-color: #0056b3; /* Fondo azul oscuro */
+  color: white; /* Texto blanco */
+  padding: 20px; /* Espaciado interno */
+  font-size: 18px; /* Tamaño de texto */
+  border: none; /* Sin bordes */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  transition: background-color 0.3s; /* Suaviza el cambio de color */
 }
 
+/**
+ * Estilo del botón de registro al pasar el mouse por encima (hover).
+ * Cambia el fondo a un azul más oscuro.
+ */
 .register-form button.btn:hover {
-  background-color: #004080;
+  background-color: #004080; /* Fondo azul más oscuro */
 }

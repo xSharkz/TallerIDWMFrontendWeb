@@ -1,61 +1,70 @@
+/* Estilo general para las tarjetas */
 .card {
-  display: flex;
-  flex-direction: column;
+  display: flex; /* Utiliza un diseño flexible */
+  flex-direction: column; /* Elementos en la tarjeta se apilan verticalmente */
   background-color: #fff; /* Fondo blanco */
   border: 1px solid #e5e7eb; /* Borde claro */
   border-radius: 0.5rem; /* Esquinas redondeadas */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
-  transition: transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidad */
+  transition: transform 0.2s ease; /* Suaviza la animación de transformación */
 }
 
+/* Estilo al pasar el mouse sobre la tarjeta */
 .card:hover {
-  transform: scale(1.05); /* Animación al pasar el mouse */
+  transform: scale(1.05); /* Incrementa ligeramente el tamaño para dar un efecto interactivo */
 }
 
+/* Estilo para las imágenes dentro de las tarjetas */
 .card img {
-  object-fit: cover;
-  width: 100%;
-  height: 10rem; /* Ajusta la altura de la imagen */
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
+  object-fit: cover; /* Ajusta la imagen para cubrir completamente el contenedor */
+  width: 100%; /* Imagen ocupa todo el ancho del contenedor */
+  height: 10rem; /* Altura fija de la imagen */
+  border-top-left-radius: 0.5rem; /* Esquinas superiores redondeadas */
+  border-top-right-radius: 0.5rem; /* Esquinas superiores redondeadas */
 }
 
+/* Contenedor del contenido dentro de la tarjeta */
 .card-content {
-  padding: 1rem;
+  padding: 1rem; /* Espaciado interno alrededor del contenido */
   color: #1f2937; /* Texto oscuro */
 }
 
+/* Estilo del título dentro de la tarjeta */
 .card-title {
-  font-size: 1rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  color: #111827; /* Título negro */
+  font-size: 1rem; /* Tamaño de fuente moderado */
+  font-weight: bold; /* Texto en negrita */
+  margin-bottom: 0.5rem; /* Espaciado inferior entre el título y el contenido */
+  color: #111827; /* Color negro para el título */
 }
 
+/* Estilo del texto descriptivo dentro de la tarjeta */
 .card-text {
-  font-size: 0.875rem;
-  margin-bottom: 0.25rem; /* Espaciado reducido */
-  color: #6b7280; /* Texto gris */
+  font-size: 0.875rem; /* Tamaño de fuente pequeño */
+  margin-bottom: 0.25rem; /* Espaciado inferior reducido */
+  color: #6b7280; /* Color gris para el texto */
 }
 
+/* Estilo del precio dentro de la tarjeta */
 .card-price {
-  font-size: 0.875rem;
-  font-weight: bold;
-  color: #10b981; /* Verde para el precio */
+  font-size: 0.875rem; /* Tamaño de fuente pequeño */
+  font-weight: bold; /* Texto en negrita */
+  color: #10b981; /* Color verde brillante para el precio */
 }
 
+/* Estilo general para los botones dentro de la tarjeta */
 .card-button {
-  background-color: #2563eb; /* Azul brillante */
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem; /* Botón más pequeño */
-  border-radius: 0.25rem;
-  font-size: 0.875rem; /* Texto más pequeño */
-  cursor: pointer;
-  text-align: center;
-  margin-top: 1rem;
+  background-color: #2563eb; /* Fondo azul brillante */
+  color: white; /* Texto blanco */
+  border: none; /* Sin bordes */
+  padding: 0.5rem 1rem; /* Espaciado interno del botón */
+  border-radius: 0.25rem; /* Esquinas redondeadas */
+  font-size: 0.875rem; /* Tamaño de fuente pequeño */
+  cursor: pointer; /* Cursor de "mano" al pasar sobre el botón */
+  text-align: center; /* Centra el texto dentro del botón */
+  margin-top: 1rem; /* Espaciado superior entre el botón y el contenido */
 }
 
+/* Efecto al pasar el mouse sobre el botón */
 .card-button:hover {
-  background-color: #1e40af; /* Fondo más oscuro al pasar el mouse */
+  background-color: #1e40af; /* Azul más oscuro al hacer hover */
 }
