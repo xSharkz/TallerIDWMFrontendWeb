@@ -1,2 +1,53 @@
+<div class="flex justify-between items-center bg-blue-500 p-4 text-white">
+  <h1 class="text-xl font-bold">{{ title }}</h1>
+  <div class="flex space-x-4">
+    <!-- Botón de Login -->
+    <button
+      *ngIf="!isAuthenticated"
+      (click)="navigateTo('/login')"
+      class="px-4 py-2 bg-green-600 rounded hover:bg-green-700"
+    >
+      Login
+    </button>
+
+    <!-- Botón de Register -->
+    <button
+      *ngIf="!isAuthenticated"
+      (click)="navigateTo('/register')"
+      class="px-4 py-2 bg-blue-600 rounded hover:bg-blue-700"
+    >
+      Register
+    </button>
+
+    <!-- Botón de Logout -->
+    <button
+      *ngIf="isAuthenticated"
+      (click)="logout()"
+      class="px-4 py-2 bg-red-600 rounded hover:bg-red-700"
+    >
+      Logout
+    </button>
+
+    <!-- Botón de Ver Clientes -->
+    <button
+      *ngIf="isAdmin"
+      (click)="navigateTo('/clients')"
+      class="px-4 py-2 bg-purple-600 rounded hover:bg-purple-700"
+    >
+      Ver Clientes
+    </button>
+
+    <!-- Botón de Ver Ordenes -->
+    <button
+      *ngIf="isAdmin"
+      (click)="navigateTo('/buy')"
+      class="px-4 py-2 bg-purple-600 rounded hover:bg-purple-700"
+    >
+      Ver Órdenes
+    </button>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
 <app-product-management></app-product-management>
 <app-cart> </app-cart>

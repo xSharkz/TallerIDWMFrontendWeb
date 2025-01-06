@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos globales */
+body {
+  margin: 0; /* Elimina márgenes por defecto */
+  background-color: #1D9CFE; /* Fondo azul */
+  font-family: 'Arial', sans-serif; /* Fuente predeterminada */
+  color: #fff; /* Texto blanco por defecto */
+}
+
+/* Ajustes para el contenedor principal */
+.container {
+  max-width: 1200px; /* Ancho máximo */
+  margin: 0 auto; /* Centrar horizontalmente */
+  padding: 1rem; /* Espaciado interno */
+}
+
+/* Para manejar la altura y el scroll */
+html,
+body {
+  height: 100%; /* Asegura que el contenido ocupe toda la altura */
+  overflow-x: hidden; /* Evita desplazamiento horizontal */
+}

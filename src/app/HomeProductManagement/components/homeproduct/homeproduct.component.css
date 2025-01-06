@@ -1,0 +1,26 @@
+/* Estilo general para un contenedor principal */
+.container {
+  max-width: 1200px; /* Ancho máximo del contenedor */
+  margin: 0 auto; /* Centrado horizontal */
+  padding: 1rem; /* Espaciado interno de 1 rem alrededor del contenido */
+}
+
+/* Clase para crear un diseño de cuadrícula */
+.grid {
+  display: grid; /* Utiliza el modelo de diseño de cuadrícula CSS */
+  gap: 1rem; /* Espaciado entre los elementos de la cuadrícula */
+}
+
+/* Media query para pantallas con un ancho mínimo de 640px */
+@media (min-width: 640px) {
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr); /* Define 2 columnas de igual ancho */
+  }
+}
+
+/* Media query para pantallas con un ancho mínimo de 1024px */
+@media (min-width: 1024px) {
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr); /* Define 3 columnas de igual ancho */
+  }
+}
