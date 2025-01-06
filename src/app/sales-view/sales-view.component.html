@@ -1,0 +1,35 @@
+<div class="sales-view-container">
+  <h2>Visualización de Ventas</h2>
+
+  <!-- Filtro de Búsqueda -->
+  <input [(ngModel)]="searchTerm" (input)="onSearch()" placeholder="Buscar por cliente..." />
+
+  <!-- Tabla de Ventas -->
+  <table>
+    <thead>
+      <tr>
+        <th (click)="onSort('fecha')">Fecha</th>
+        <th (click)="onSort('cliente')">Cliente</th>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let sale of sales">
+        <td>{{ sale.fecha }}</td>
+        <td>{{ sale.cliente }}</td>
+        <td>{{ sale.producto }}</td>
+        <td>{{ sale.cantidad }}</td>
+        <td>{{ sale.total | currency }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Paginación -->
+  <div class="pagination">
+    <button (click)="onPageChange(page - 1)" [disabled]="page === 1">Anterior</button>
+    <span>{{ (totalItems / limit) | number: '1.0-0' }}</span>
+    <button (click)="onPageChange(page + 1)" [disabled]="page * limit >= totalItems">Siguiente</button>
+  </div>
+</div>
