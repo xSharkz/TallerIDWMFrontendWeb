@@ -10,14 +10,14 @@ import { ChangePasswordComponent } from "./change-password/change-password.compo
 import { FormsModule } from '@angular/forms';
 import { ProductManagementComponent } from "./product-management/product-management.component";
 import { SalesViewComponent } from './sales-view/sales-view.component';
-
+import { CartComponent } from './cart/cart.component';
 /**
  * Componente raíz de la aplicación.
  */
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HttpClientModule, CommonModule,ProductManagementComponent, SalesViewComponent, EditProfileComponent, ChangePasswordComponent, RouterOutlet, FormsModule],
+  imports: [RouterOutlet, HttpClientModule, CommonModule,ProductManagementComponent, SalesViewComponent, EditProfileComponent, ChangePasswordComponent, RouterOutlet, FormsModule, CartComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })

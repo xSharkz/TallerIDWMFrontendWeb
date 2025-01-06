@@ -37,7 +37,7 @@
       Ver Clientes
     </button>
 
-    <!-- Botón de Ver Ordenes -->
+    <!-- Botón de Ver Órdenes -->
     <button
       *ngIf="isAdmin"
       (click)="navigateTo('/buy')"
@@ -45,9 +45,44 @@
     >
       Ver Órdenes
     </button>
+
+    <!-- Botón de Editar Perfil -->
+    <button
+      *ngIf="isAuthenticated"
+      (click)="navigateTo('/edit-profile')"
+      class="px-4 py-2 bg-yellow-500 rounded hover:bg-yellow-600"
+    >
+      Editar Perfil
+    </button>
+
+    <!-- Botón de Cambiar Contraseña -->
+    <button
+      *ngIf="isAuthenticated"
+      (click)="navigateTo('/change-password')"
+      class="px-4 py-2 bg-orange-500 rounded hover:bg-orange-600"
+    >
+      Cambiar Contraseña
+    </button>
+
+    <!-- Botón de Gestión de Productos -->
+    <button
+      *ngIf="isAdmin"
+      (click)="navigateTo('/product-management')"
+      class="px-4 py-2 bg-indigo-500 rounded hover:bg-indigo-600"
+    >
+      Gestión de Productos
+    </button>
+
+    <!-- Botón de Vista de Ventas -->
+    <button
+      *ngIf="isAdmin"
+      (click)="navigateTo('/sales-view')"
+      class="px-4 py-2 bg-teal-500 rounded hover:bg-teal-600"
+    >
+      Vista de Ventas
+    </button>
   </div>
 </div>
 
+<!-- Área donde se cargan los componentes según la ruta -->
 <router-outlet></router-outlet>
-<app-product-management></app-product-management>
-<app-cart> </app-cart>
