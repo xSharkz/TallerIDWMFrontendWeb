@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService, Product } from '../services/product.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-product-management',
   templateUrl: './product-management.component.html',
   styleUrls: ['./product-management.component.css'],
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule],
   providers: [ProductService],
 })
 export class ProductManagementComponent implements OnInit {
