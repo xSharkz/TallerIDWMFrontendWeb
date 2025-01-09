@@ -1,0 +1,33 @@
+.sales-view-container {
+  padding: 20px;
+}
+
+input {
+  margin-bottom: 10px;
+  padding: 5px;
+  font-size: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+th {
+  cursor: pointer;
+}
+
+.pagination {
+  margin-top: 20px;
+}
+
+button {
+  padding: 5px 10px;
+  margin: 5px;
+}

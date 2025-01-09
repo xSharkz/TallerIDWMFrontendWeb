@@ -1,0 +1,63 @@
+/* src/app/AuthManagement/components/login/login.component.css */
+
+/* Contenedor principal para el formulario de inicio de sesión */
+.login-container {
+  background-color: #007bff; /* Fondo azul */
+  padding: 20px 50px; /* Espaciado interno alrededor del contenido */
+  border-radius: 10px; /* Esquinas redondeadas */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  max-width: 500px; /* Ancho máximo para limitar el tamaño */
+  margin: 20px auto; /* Margen superior/inferior de 20px y centrado horizontal */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para dar efecto elevado */
+}
+
+/* Estilo del título dentro del formulario */
+.login-container h2 {
+  font-size: 30px; /* Tamaño de fuente grande */
+  color: #ffffff; /* Color del texto blanco */
+  text-align: center; /* Centrado del texto */
+  margin-bottom: 40px; /* Espaciado inferior entre el título y el resto del contenido */
+}
+
+/* Estilo general para los grupos de formulario */
+.login-form .form-group {
+  margin-bottom: 20px; /* Espaciado inferior entre los elementos del formulario */
+}
+
+/* Estilo de las etiquetas de los campos del formulario */
+.login-form label {
+  font-size: 20px; /* Tamaño de fuente moderadamente grande */
+  color: #f1f1f1; /* Color claro para contraste con el fondo */
+  display: block; /* Asegura que las etiquetas ocupen toda la línea */
+  margin-bottom: 10px; /* Espaciado inferior entre la etiqueta y el campo */
+}
+
+/* Estilo de los campos de entrada (input) */
+.login-form input {
+  width: 100%; /* Los campos ocupan todo el ancho disponible */
+  padding: 15px; /* Espaciado interno para que el texto no esté pegado a los bordes */
+  font-size: 18px; /* Tamaño de fuente moderado */
+  border: none; /* Sin bordes visibles */
+  border-radius: 5px; /* Esquinas redondeadas */
+  box-sizing: border-box; /* Incluye padding y borde en el cálculo del ancho */
+  color: #000; /* Texto en negro para mejor legibilidad */
+  background-color: #ffffff; /* Fondo blanco para contraste */
+}
+
+/* Estilo del botón de enviar (Login) */
+.login-form button.btn {
+  width: 100%; /* Botón ocupa todo el ancho disponible */
+  background-color: #0056b3; /* Fondo azul oscuro */
+  color: white; /* Texto blanco */
+  padding: 20px; /* Espaciado interno para que sea fácil de hacer clic */
+  font-size: 18px; /* Tamaño de fuente moderado */
+  border: none; /* Sin bordes visibles */
+  border-radius: 5px; /* Esquinas redondeadas */
+  cursor: pointer; /* Cursor de "mano" al pasar sobre el botón */
+  transition: background-color 0.3s; /* Transición suave al cambiar de color */
+}
+
+/* Cambio de color del botón al pasar el ratón */
+.login-form button.btn:hover {
+  background-color: #004080; /* Azul aún más oscuro al hacer hover */
+}

@@ -1,0 +1,55 @@
+:host {
+  display: block;
+  background-color: var(--background-main);
+  padding: 2rem;
+  min-height: 100vh;
+  color: var(--primary-text);
+}
+
+form {
+  background-color: var(--form-bg);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form div {
+  margin-bottom: 1rem;
+}
+
+label {
+  color: var(--primary-text);
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+input, select {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid var(--input-border);
+  border-radius: 5px;
+  font-size: 1rem;
+  color: var(--primary-text);
+  background-color: var(--background-main);
+}
+
+input:focus, select:focus {
+  border-color: var(--input-focus-border);
+  outline: none;
+}
+
+button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: var(--button-hover-bg);
+}
