@@ -13,7 +13,17 @@ npm -v
 Si no los tienes instalados, descarga e instala Node.js desde Node.js official website, lo cual incluirá npm.
 
 Instalación de Dependencias
-Después de clonar el repositorio, navega al directorio del proyecto y ejecuta el siguiente comando para instalar todas las dependencias necesarias:
+Después de clonar el repositorio
+```bash
+git clone https://github.com/xSharkz/TallerIDWMFrontendWeb.git
+```
+
+navega al directorio del proyecto
+```bash
+cd TallerIDWMFrontendWeb
+```
+
+ejecuta el siguiente comando para instalar todas las dependencias necesarias:
 
 ```bash
 npm install
